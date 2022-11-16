@@ -9,7 +9,7 @@ log.basicConfig(level=log.DEBUG,
 
 # sqlite connection version
 try:
-    conn = sqlite3.connect('datasets/olympics.db')
+    conn = sqlite3.connect('database/olympics.db')
     # cursor
     cursor = conn.cursor()
 except Exception:

@@ -10,7 +10,7 @@ log.basicConfig(level=log.DEBUG,
 
 # sqlalchemy version, engine creation
 try:
-    engine = db.create_engine('sqlite:///datasets/olympics.db')
+    engine = db.create_engine('sqlite:///database/olympics.db')
     sqla_connection = engine.connect()
 except Exception:
     log.error("version sqlalchemy connection failed", exc_info=True)
