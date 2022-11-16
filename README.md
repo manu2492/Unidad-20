@@ -13,6 +13,6 @@ dataset.
 cargado correctamente.
 
 ## Instrucciones
-* En **src** están dos archivos .py donde se resolvió la consiga de
+* En **src** están los dos archivos .py donde se resolvió la consiga de
 2 formas distintas.
 * En **database** está la base de datos SQlite que se creó. 
