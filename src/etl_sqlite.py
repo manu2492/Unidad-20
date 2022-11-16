@@ -49,12 +49,11 @@ df_gold_usa.to_sql(
         conn,
         if_exists='replace',
         index=False,
-        chunksize=500,
         )
 
 # select all data from medals, sqlite version
-query2 = "SELECT * FROM medals2"
-cursor.execute(query2)
-one_result = cursor.fetchall()
-# one_result = pd.DataFrame(one_result)
-print(one_result)
+query_select = "SELECT * FROM medals2"
+cursor.execute(query_select)
+data = cursor.fetchall()
+# data = pd.DataFrame(data)
+print(data)

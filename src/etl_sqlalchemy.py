@@ -35,7 +35,6 @@ df_gold_usa.to_sql(
         engine,
         if_exists='replace',
         index=False,
-        chunksize=500,
         dtype={
             "Year": Integer,
             "City": Text,
