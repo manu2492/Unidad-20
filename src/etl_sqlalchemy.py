@@ -30,22 +30,25 @@ df_gold_usa = df_medals[(df_medals["NOC"] == "USA") & (df_medals["Medal"]
                         == "Gold") & (df_medals["Year"] >= 1950)]
 
 # Upload data to "olympics" database in table "medals"
-df_gold_usa.to_sql(
-        'medals',
-        engine,
-        if_exists='replace',
-        index=False,
-        dtype={
-            "Year": Integer,
-            "City": Text,
-            "Sport": Text,
-            "Discipline":  Text,
-            "NOC": Text,
-            "Event": Text,
-            "Event gender": Text,
-            "Medal": Text
+try:
+    df_gold_usa.to_sql(
+            'medals',
+            engine,
+            if_exists='replace',
+            index=False,
+            dtype={
+                "Year": Integer,
+                "City": Text,
+                "Sport": Text,
+                "Discipline":  Text,
+                "NOC": Text,
+                "Event": Text,
+                "Event gender": Text,
+                "Medal": Text
 
-        })
+            })
+except Exception:
+    log.error("upload failed", exc_info=True)
 
 # Select all data from medals table, pandas version
 query = "SELECT * FROM medals"

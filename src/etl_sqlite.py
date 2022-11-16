@@ -43,13 +43,16 @@ query = """CREATE TABLE IF NOT EXISTS medals2 (
 cursor.execute(query)
 conn.commit()
 
-# Insert
-df_gold_usa.to_sql(
-        'medals2',
-        conn,
-        if_exists='replace',
-        index=False,
-        )
+# Upload data to "olympics" database in table "medals2"
+try:
+    df_gold_usa.to_sql(
+            'medals2',
+            conn,
+            if_exists='replace',
+            index=False,
+            )
+except Exception:
+    log.error("upload failed", exc_info=True)
 
 # select all data from medals, sqlite version
 query_select = "SELECT * FROM medals2"
